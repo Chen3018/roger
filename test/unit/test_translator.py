@@ -26,6 +26,7 @@ def test_unexpected_language(mocker):
     mocker.return_value.text = "I don't understand your request"
     content = "Aquí está su primer ejemplo."
     assert translate_content(content) == (True, content)
+    assert translate_content("??????????") == (True, "??????????")
     mocker.return_value.text = ""
     assert translate_content(content) == (True, content)
     mocker.return_value.text = {}
