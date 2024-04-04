@@ -2,18 +2,16 @@ from src.translator import translate_content, get_language, get_translation
 from mock import patch
 from typing import Callable
 
-#@patch('src.translator.get_language')
-#@patch('src.translator.get_translation')
+@patch('src.translator.get_language')
+@patch('src.translator.get_translation')
 def test_chinese():
-    #mock_get_language.return_value = "Chinese"
-    #mock_get_translation.return_value = "This is a Chinese message"
-    #is_english, translated_content = translate_content("这是一条中文消息")
-    is_english = False
-    translated_content = "This is a Chinese message"
+    mock_get_language.return_value = "Chinese"
+    mock_get_translation.return_value = "This is a Chinese message"
+    is_english, translated_content = translate_content("这是一条中文消息")
     assert is_english == False
     assert translated_content == "This is a Chinese message"
 
-"""@patch('src.translator.get_language')
+@patch('src.translator.get_language')
 @patch('src.translator.get_translation')
 def test_llm_normal_response(mock_get_translation, mock_get_language):
     mock_get_language.return_value = "French"
@@ -47,4 +45,4 @@ def test_unexpected_language(mock_get_translation, mock_get_language):
 
     mock_get_language.return_value = "English"
     mock_get_translation.return_value = "??????????"
-    assert translate_content("??????????") == (True, "??????????")"""
+    assert translate_content("??????????") == (True, "??????????")
