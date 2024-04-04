@@ -4,7 +4,7 @@ from typing import Callable
 
 @patch('src.translator.get_language')
 @patch('src.translator.get_translation')
-def test_chinese():
+def test_chinese(mock_get_translation, mock_get_language):
     mock_get_language.return_value = "Chinese"
     mock_get_translation.return_value = "This is a Chinese message"
     is_english, translated_content = translate_content("这是一条中文消息")
