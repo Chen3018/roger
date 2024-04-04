@@ -1,7 +1,13 @@
 from vertexai.preview.language_models import ChatModel, InputOutputTextPair
 
+chat_model = None
+
 def get_translation(post: str) -> str:
-    chat_model = ChatModel.from_pretrained("chat-bison@001")
+    global chat_model
+
+    if chat_model == None:
+        chat_model = ChatModel.from_pretrained("chat-bison@001")
+
     context_text = "You are a translator. If given a sentence not in English, translate it to English. If the sentence is already in English, return the same sentence."
 
     parameters = {
@@ -14,7 +20,11 @@ def get_translation(post: str) -> str:
     return response.text
 
 def get_language(post: str) -> str:
-    chat_model = ChatModel.from_pretrained("chat-bison@001")
+    global chat_model
+
+    if chat_model == None:
+        chat_model = ChatModel.from_pretrained("chat-bison@001")
+        
     context_lang = "You are a translator. Your job is to classify the language of a piece of text."
 
     parameters = {
