@@ -1,10 +1,10 @@
 from typing import Callable
 from google.colab import auth
-from google.cloud import aiplatform
+from google.cloud import aiplatform, storage
 
 PROJECT_ID = "active-smile-416914"
 
-! gcloud config set project {PROJECT_ID}
+client = storage.Client(project=PROJECT_ID)
 
 auth.authenticate_user()
 
