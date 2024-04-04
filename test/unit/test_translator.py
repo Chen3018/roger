@@ -1,4 +1,3 @@
-
 from src.translator import translate_content, get_language, get_translation
 from mock import patch
 from typing import Callable
