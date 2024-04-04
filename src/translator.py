@@ -1,4 +1,4 @@
-from vertexai.preview.language_models import ChatModel, InputOutputTextPair
+#from vertexai.preview.language_models import ChatModel, InputOutputTextPair
 
 def get_translation(post: str) -> str:
     chat_model = ChatModel.from_pretrained("chat-bison@001")
