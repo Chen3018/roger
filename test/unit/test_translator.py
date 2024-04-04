@@ -1,4 +1,4 @@
-"""from src.translator import translate_content, get_language, get_translation
+from src.translator import translate_content, get_language, get_translation
 from mock import patch
 from typing import Callable
 
@@ -11,7 +11,7 @@ def test_chinese(mock_get_translation, mock_get_language):
     assert is_english == False
     assert translated_content == "This is a Chinese message"
 
-@patch('src.translator.get_language')
+"""@patch('src.translator.get_language')
 @patch('src.translator.get_translation')
 def test_llm_normal_response(mock_get_translation, mock_get_language):
     mock_get_language.return_value = "French"
